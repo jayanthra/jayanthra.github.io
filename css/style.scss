@@ -42,22 +42,23 @@ section {
 }
 
 .header {
-  padding: 25px 150px;
+  height: 50px;
+  padding: 20px 150px;
   display: flex;
   justify-content: space-between;
   position: fixed;
   left: 0;
   right: 0;
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
   z-index: 3;
+  backdrop-filter: blur(10px);
+  box-shadow: 8px 8px 40px 1px rgba(96, 96, 116, 0.07);
+  transition: 0.2s ease-in-out all;
 
   .logo-container {
     display: flex;
     align-items: center;
     cursor: url(../img/mylogo.svg), auto;
-    // .logo {
-    //   height: 50px;
-    // }
 
     .logo-name {
       color: $text-dark;
@@ -80,6 +81,8 @@ section {
     background: $lavendar-1;
     box-shadow: 8px 8px 40px 1px rgba(96, 96, 116, 0.15);
     transition: 0.2s ease-in-out all;
+    z-index: 5;
+    cursor: pointer;
 
     .line {
       height: 5px;
@@ -99,8 +102,81 @@ section {
     &:hover {
       background: $lavendar-2;
     }
+
+    &.expanded {
+      .line-1 {
+        transform: translate(10px, 23px) rotate(45deg);
+      }
+
+      .line-2 {
+        transform: translate(10px, 18px) rotateZ(135deg);
+      }
+    }
   }
+
+  .side-menu {
+    position: fixed;
+    width: 380px;
+    right: 0;
+    height: 0;
+    top: 0;
+    background: $lavendar-1;
+    opacity: 0;
+    overflow: hidden;
+
+    ul {
+      padding: 200px 30px;
+
+      li {
+        margin-bottom: 20px;
+        transition: 0.2s ease-in-out all;
+
+        a {
+          font-size: 40px;
+          font-weight: bold;
+          color: $text-dark;
+          text-decoration: none;
+          transition: 0.2s ease-in-out all;
+        }
+
+        &::before {
+          content: ' ';
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          margin-right: 12px;
+          transform: rotateZ(45deg) translate(-10px, 5px);
+          border-top: 1px solid;
+          border-right: 1px solid;
+          transition: 0.2s ease-in-out all;
+        }
+
+        &:hover {
+          a {
+            color: $primary-blue;
+          }
+
+          &::before {
+            transform: rotateZ(45deg) translate(1px, -7px);
+          }
+        }
+      }
+    }
+  }
+
+
+  &.full-height {
+    height: 100%;
+
+    .side-menu {
+      height: 100%;
+      opacity: 1;
+    }
+  }
+
 }
+
+
 
 .main {
   .left {
@@ -171,20 +247,22 @@ section {
       font-size: 20px;
       margin-top: 40px;
     }
+
     ul {
       margin-top: 24px;
     }
+
     li {
       color: $primary-blue;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 16px;
       margin-top: 10px;
 
       &::before {
         content: ' ';
         background: $secondary-blue;
-        width: 10px;
-        height: 10px;
+        width: 6px;
+        height: 6px;
         display: inline-block;
         margin-right: 12px;
         transform: rotateZ(45deg);
