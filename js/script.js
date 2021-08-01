@@ -1,29 +1,19 @@
-const hambrgBtn = document.querySelector('.hamburger-btn');
-const menu = document.querySelector('.menu');
-const profilePic = document.querySelector('.menu-pic');
-const menuNav = document.querySelector('.menu-nav');
+(function() {
+  // Add event listener
+  document.addEventListener("mousemove", parallax);
+  const elem = document.querySelector(".parallax");
+  // Magic happens here
+  function parallax(e) {
+      let _w = window.innerWidth/2;
+      let _h = window.innerHeight/2;
+      let _mouseX = e.clientX;
+      let _mouseY = e.clientY;
+      let _depth1 = `${50 - (_mouseX - _w) * 0.03}% ${50 - (_mouseY - _h) * 0.03}%`;
+      let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
+      let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+      let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+      console.log(x);
+      elem.style.backgroundPosition = x;
+  }
 
-const navItems = document.querySelectorAll('.nav-item');
-
-let showMenu = false;
-
-hambrgBtn.addEventListener('click', toggleMenu);
-
-function toggleMenu() {
-    if (!showMenu) {
-        hambrgBtn.classList.add('close');
-        menu.classList.add('show');
-        profilePic.classList.add('show');
-        menuNav.classList.add('show');
-        navItems.forEach(item => item.classList.add('show'));
-
-    } else {
-        hambrgBtn.classList.remove('close');
-        menu.classList.remove('show');
-        profilePic.classList.remove('show');
-        menuNav.classList.remove('show');
-        navItems.forEach(item => item.classList.remove('show'));
-    }
-
-    showMenu = !showMenu;
-}
+})();
