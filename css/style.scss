@@ -38,7 +38,7 @@ section {
   height: 100vh;
   scroll-snap-align: start;
   display: flex;
-  padding-top: 200px;
+  padding-top: 150px;
 }
 
 .header {
@@ -300,6 +300,7 @@ section {
 }
 
 .brands {
+
   .left {
     width: 50%;
 
@@ -307,5 +308,93 @@ section {
       font-size: 30px;
       font-weight: bold;
     }
+
+    .logos {
+      margin-top: 100px;
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+      }
+
+      li {
+        margin-bottom: 15px;
+
+        img {
+          cursor: pointer;
+          max-height: 100px;
+          background: white;
+          padding: 5px;
+          border-radius: 10px;
+          box-shadow: 8px 8px 40px 1px rgba(96, 96, 116, 0.10);
+          transition: 0.2s ease-in-out all;
+
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 40px 1px rgba(96, 96, 116, 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  .divider {
+    opacity: 0.3;
+    position: relative;
+    padding-top: 50px;
+
+    .vertical {
+      background: $text-dark;
+      height: 60%;
+      width: 1px;
+    }
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 30%;
+      border: 1px solid $text-dark;
+      transform: rotate(45deg) translateY(21px);
+      background: white;
+      border-left: 1px spo;
+      border-left: none;
+      border-bottom: navajowhite;
+    }
+  }
+
+  .right {
+    width: 49%;
+    padding: 50px;
+
+    .title {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .desc {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .task {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.4;
+      margin-bottom: 30px;
+    }
+
+    a {
+      text-decoration: none;
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
   }
 }
