@@ -422,4 +422,64 @@ section {
   font-size: 15px;
   font-weight: bold;
 }
+
+.contact {
+  height: 90vh;
+}
+
+.contact .details {
+  position: relative;
+}
+
+.contact .title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.contact .desc {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1.5;
+  margin-top: 60px;
+}
+
+.contact .desc a {
+  text-decoration: none;
+}
+
+.contact .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 100px;
+}
+
+.contact .icons a {
+  color: #3f3d56;
+  text-decoration: none;
+  padding: 20px;
+  -webkit-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+}
+
+.contact .icons a:hover {
+  color: #6C63FF;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.contact .icons a i {
+  font-size: 70px;
+}
+
+.contact footer {
+  text-align: center;
+  bottom: 100px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
 /*# sourceMappingURL=style.css.map */

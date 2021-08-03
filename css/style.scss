@@ -398,3 +398,58 @@ section {
 
   }
 }
+
+.contact {
+  height: 90vh;
+  .details {
+    position: relative;
+  }
+
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .desc {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-top: 60px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+    a {
+      color: $text-dark;
+      text-decoration: none;
+      padding: 20px;
+      transition: 0.2s ease-in-out all;
+
+
+      &:hover {
+        color: $primary-blue;
+        transition: all 0.3s ease-out;
+      }
+
+      i {
+        font-size: 70px;
+      }
+    }
+  }
+
+  footer {
+    text-align: center;
+    bottom: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+}
