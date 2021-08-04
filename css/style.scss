@@ -5,6 +5,18 @@ $text-dark: #3f3d56;
 $lavendar-1: #e4e2ff;
 $lavendar-2: #f1f0ff;
 
+@mixin phone {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media only screen and (max-width: 770px) and (min-width: 501px) {
+    @content;
+  }
+}
+
 html,
 body {
   font-family: 'Montserrat', sans-serif;
@@ -39,6 +51,17 @@ section {
   scroll-snap-align: start;
   display: flex;
   padding-top: 150px;
+
+  @include tab {
+    padding: 0 50px;
+    padding-top: 100px;
+  }
+
+  @include phone {
+    padding: 0 30px;
+    padding-top: 100px;
+  }
+
 }
 
 .header {
@@ -58,7 +81,6 @@ section {
   .logo-container {
     display: flex;
     align-items: center;
-    cursor: url(../img/mylogo.svg), auto;
 
     .logo-name {
       color: $text-dark;
@@ -174,6 +196,54 @@ section {
     }
   }
 
+  @include phone {
+    padding: 10px 20px;
+    height: 30px;
+
+    .logo-container {
+      .logo-name {
+        font-size: 28px;
+      }
+
+      .line {
+        width: 60px;
+        transform: translate(-60px, 15px);
+      }
+    }
+
+    .expander {
+      height: 30px;
+      width: 30px;
+
+      .line {
+        height: 3px;
+        width: 18px;
+      }
+
+      .line-1 {
+        transform: translate(6px, 8px);
+      }
+
+      .line-2 {
+        transform: translate(6px, 15px);
+      }
+
+      &.expanded {
+        .line-1 {
+          transform: translate(6px, 14px) rotate(45deg);
+        }
+
+        .line-2 {
+          transform: translate(6px, 11px) rotateZ(135deg);
+        }
+      }
+    }
+  }
+
+  @include tab {
+    padding: 10px 20px;
+  }
+
 }
 
 
@@ -222,6 +292,39 @@ section {
       url(../img/sitting.svg),
       url(../img/table.svg),
       url(../img/bg.svg);
+  }
+
+  .me-image {
+    display: none;
+  }
+
+  @include phone {
+    flex-direction: column;
+    padding-top: 0;
+
+    .left {
+      width: 100%;
+      text-align: center;
+
+      .title {
+        font-size: 25px;
+      }
+    }
+
+    .parallax {
+      display: none;
+    }
+
+    .me-image {
+      display: block;
+      border-radius: 50%;
+      width: 50%;
+      margin: auto;
+      padding: 5px;
+      text-align: center;
+      border: 2px solid #6c63ff;
+      box-shadow: 8px 8px 40px 1px rgba(96, 96, 116, 0.7);
+    }
   }
 }
 
@@ -294,6 +397,22 @@ section {
           padding: 0;
         }
       }
+    }
+  }
+
+
+  @include phone {
+
+    .left {
+      width: 100%;
+
+      .title {
+        font-size: 20px;
+      }
+    }
+
+    .right {
+      display: none;
     }
   }
 
@@ -397,10 +516,55 @@ section {
     }
 
   }
+
+
+  @include phone {
+    flex-direction: column;
+
+    .left {
+      width: 100%;
+
+      .title {
+        font-size: 20px;
+      }
+
+      .logos {
+        margin-top: 30px;
+
+        ul {
+          grid-template-columns: repeat(3, 1fr);
+          text-align: center;
+        }
+
+        li {
+          margin-bottom: 10px;
+
+          img {
+            max-height: 60px;
+          }
+        }
+      }
+    }
+
+    .right {
+      padding: 0;
+      width: 100%;
+
+      .title {
+        font-size: 30px;
+      }
+    }
+
+    .divider {
+      display: none;
+    }
+  }
+
 }
 
 .contact {
   height: 90vh;
+
   .details {
     position: relative;
   }
@@ -450,6 +614,27 @@ section {
     position: absolute;
     left: 0;
     right: 0;
+  }
+
+  @include phone {
+    .title {
+      font-size: 20px;
+    }
+
+    .desc {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    .icons {
+      margin-top: 60px;
+
+      a {
+        i {
+          font-size: 40px;
+        }
+      }
+    }
   }
 
 }
